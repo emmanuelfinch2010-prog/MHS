@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewGen Mulch & Stone LLC – Meridian, MS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bark:    #3B2A1A;
+      --soil:    #6B4C2E;
+      --moss:    #4A6741;
+      --sage:    #7DA86E;
+      --stone:   #B5A99A;
+      --cream:   #F7F3EE;
+      --offwhite:#FDFBF8;
+      --white:   #FFFFFF;
+      --text:    #1E1512;
+      --muted:   #7A6A5E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--offwhite);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5%;
+      background: rgba(253,251,248,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(59,42,26,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .nav-logo .leaf-icon {
+      width: 36px; height: 36px;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--bark);
+      line-height: 1.1;
+    }
+    .nav-logo-text span { color: var(--moss); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--soil);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--moss); }
+
+    .nav-cta {
+      background: var(--moss);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+    }
+    .nav-cta:hover { background: var(--bark) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 80px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-content {
+      padding: 6% 5% 6% 8%;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--sage);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: "★"; font-size: 0.7rem; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--bark);
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--moss);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--moss);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--bark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(74,103,65,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--bark);
+      border: 2px solid var(--bark);
+    }
+    .btn-outline:hover {
+      background: var(--bark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(59,42,26,0.1);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bark);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Signature element: layered stone/mulch illustration */
+    .hero-visual {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .hero-bg-shape {
+      position: absolute;
+      top: 0; right: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--stone) 60%, var(--soil) 100%);
+      clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .hero-texture-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 60% 40%, rgba(74,103,65,0.18) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cellipse cx='20' cy='30' rx='9' ry='5' fill='%236B4C2E' opacity='0.12' transform='rotate(-20 20 30)'/%3E%3Cellipse cx='55' cy='15' rx='7' ry='4' fill='%233B2A1A' opacity='0.10' transform='rotate(10 55 15)'/%3E%3Cellipse cx='35' cy='60' rx='11' ry='6' fill='%234A6741' opacity='0.09' transform='rotate(30 35 60)'/%3E%3Cellipse cx='70' cy='50' rx='8' ry='4' fill='%236B4C2E' opacity='0.11' transform='rotate(-15 70 50)'/%3E%3C/svg%3E");
+      clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .hero-card {
+      position: absolute;
+      bottom: 12%;
+      left: 10%;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.2rem 1.6rem;
+      box-shadow: 0 8px 40px rgba(59,42,26,0.18);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 240px;
+    }
+    .hero-card-icon {
+      width: 48px; height: 48px;
+      background: var(--sage);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card-icon svg { width: 26px; height: 26px; }
+    .hero-card-title { font-weight: 600; font-size: 0.9rem; color: var(--bark); }
+    .hero-card-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+    .hero-card2 {
+      position: absolute;
+      top: 22%;
+      right: 8%;
+      background: var(--bark);
+      border-radius: 16px;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 8px 40px rgba(59,42,26,0.25);
+      color: var(--white);
+      min-width: 180px;
+    }
+    .hero-card2 .stars { color: #F5C842; font-size: 1rem; letter-spacing: 0.05em; }
+    .hero-card2 .review-text { font-size: 0.78rem; opacity: 0.85; margin-top: 0.4rem; line-height: 1.5; }
+    .hero-card2 .review-author { font-size: 0.72rem; font-weight: 600; margin-top: 0.6rem; opacity: 0.7; }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--bark);
+      color: var(--cream);
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-inner span {
+      display: inline-block;
+      padding: 0 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .ticker-inner span::before { content: "◆ "; color: var(--sage); margin-right: 0.5rem; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 8%; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--bark);
+      line-height: 1.15;
+      max-width: 560px;
+    }
+    .section-title + p {
+      color: var(--muted);
+      margin-top: 1rem;
+      max-width: 560px;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--cream); }
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--offwhite);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(59,42,26,0.07);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(59,42,26,0.12);
+    }
+    .product-swatch {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .swatch-mulch   { background: linear-gradient(135deg, #6B4C2E 0%, #3B2A1A 100%); }
+    .swatch-pine    { background: linear-gradient(135deg, #8B6914 0%, #5A4010 100%); }
+    .swatch-stone   { background: linear-gradient(135deg, #9E9589 0%, #6D6560 100%); }
+    .swatch-gravel  { background: linear-gradient(135deg, #BFBAB4 0%, #8C8880 100%); }
+    .swatch-topsoil { background: linear-gradient(135deg, #4A3520 0%, #2A1E10 100%); }
+    .swatch-sand    { background: linear-gradient(135deg, #D4B483 0%, #A88844 100%); }
+
+    .product-info { padding: 1.25rem 1.5rem 1.5rem; }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--bark);
+    }
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+    .product-tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: rgba(74,103,65,0.12);
+      color: var(--moss);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── WHY US ── */
+    #why { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .why-visual {
+      position: relative;
+    }
+    .why-big-card {
+      background: var(--bark);
+      border-radius: 24px;
+      padding: 3rem;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-big-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: var(--moss);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+    .why-big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--sage);
+      line-height: 1;
+      opacity: 0.9;
+    }
+    .why-big-label {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+    .why-mini-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .why-mini {
+      background: var(--offwhite);
+      border-radius: 16px;
+      padding: 1.25rem;
+      border: 1px solid rgba(59,42,26,0.08);
+    }
+    .why-mini-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .why-mini-title { font-weight: 600; font-size: 0.875rem; color: var(--bark); }
+    .why-mini-desc { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; line-height: 1.5; }
+
+    .why-features { padding-left: 0; }
+    .why-features .section-title { margin-bottom: 1.5rem; }
+    .feature-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: 16px;
+      transition: background 0.2s;
+    }
+    .feature-item:hover { background: #EEE9E1; }
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: var(--sage);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    .feature-title { font-weight: 600; font-size: 0.95rem; color: var(--bark); }
+    .feature-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--bark); color: var(--cream); }
+    #reviews .section-label { color: var(--sage); }
+    #reviews .section-title { color: var(--white); max-width: 100%; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 1.75rem;
+      transition: background 0.2s;
+    }
+    .review-card:hover { background: rgba(255,255,255,0.11); }
+    .review-stars { color: #F5C842; font-size: 1.05rem; letter-spacing: 0.05em; }
+    .review-body {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 0.9rem;
+      color: rgba(247,243,238,0.88);
+    }
+    .review-author {
+      margin-top: 1.25rem;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--sage);
+      letter-spacing: 0.04em;
+    }
+    .reviews-aggregate {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .agg-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--sage);
+      line-height: 1;
+    }
+    .agg-info { display: flex; flex-direction: column; gap: 0.25rem; }
+    .agg-stars { color: #F5C842; font-size: 1.3rem; }
+    .agg-count { font-size: 0.85rem; opacity: 0.7; }
+
+    /* ── DELIVERY ── */
+    #delivery {
+      background: var(--sage);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 8%;
+    }
+    #delivery .section-label { color: rgba(255,255,255,0.75); }
+    #delivery .section-title { color: var(--white); max-width: 100%; text-align: center; margin: 0 auto; }
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    .delivery-item {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+    .delivery-item:hover { background: rgba(255,255,255,0.22); }
+    .delivery-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .delivery-title { font-weight: 700; font-size: 1rem; }
+    .delivery-desc { font-size: 0.82rem; opacity: 0.85; margin-top: 0.4rem; line-height: 1.6; }
+
+    /* ── CONTACT / CTA ── */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info .section-title { margin-bottom: 1rem; }
+    .contact-details {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--cream);
+      border-radius: 14px;
+    }
+    .contact-row-icon {
+      font-size: 1.3rem;
+      width: 40px; height: 40px;
+      background: var(--sage);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-row-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .contact-row-value { font-size: 0.95rem; font-weight: 600; color: var(--bark); margin-top: 0.15rem; }
+    .contact-row-value a { color: inherit; text-decoration: none; }
+    .contact-row-value a:hover { color: var(--moss); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .hours-day { font-size: 0.82rem; color: var(--muted); }
+    .hours-time { font-size: 0.82rem; color: var(--bark); font-weight: 600; }
+
+    .contact-form-wrap {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 2.5rem;
+    }
+    .contact-form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--bark);
+      margin-bottom: 1.75rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--soil);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.03em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(59,42,26,0.15);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--moss); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; justify-content: center; border-radius: 10px; font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(247,243,238,0.7);
+      padding: 3rem 8% 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .footer-brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-brand-text span { color: var(--sage); }
+    .footer-tagline { font-size: 0.82rem; line-height: 1.6; max-width: 280px; }
+    footer h4 {
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    footer ul a {
+      text-decoration: none;
+      color: rgba(247,243,238,0.65);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    footer ul a:hover { color: var(--sage); }
+    .footer-bottom {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { flex-wrap: wrap; gap: 0.75rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 5rem 6% 3rem; }
+      .hero-visual { display: none; }
+      #why { grid-template-columns: 1fr; }
+      .why-visual { display: none; }
+      #contact { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 4rem 6%; }
+    }
+
+    /* ── OPEN BADGE ── */
+    .open-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--moss);
+      background: rgba(74,103,65,0.12);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .open-dot {
+      width: 7px; height: 7px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="leaf-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 4C10 4 4 12 4 20C4 28 10 32 18 32C26 32 32 26 32 18C32 10 26 4 18 4Z" fill="#4A6741"/>
+      <path d="M18 32V16" stroke="#F7F3EE" stroke-width="2" stroke-linecap="round"/>
+      <path d="M18 22L13 17" stroke="#F7F3EE" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M18 18L23 13" stroke="#F7F3EE" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-logo-text">NewGen <span>Mulch</span> & Stone</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#delivery">Delivery</a></li>
+    <li><a href="#contact" class="nav-cta btn">Get a Free Estimate</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="open-pill"><span class="open-dot"></span> Open Now · Closes 4 PM</div>
+    <div class="hero-badge">5.0 ★ — Meridian's Favorite Landscaping Supply</div>
+    <h1>Your yard,<br><em>transformed</em><br>from the ground up.</h1>
+    <p class="hero-sub">Premium mulch, stone, gravel, and topsoil — delivered same-day right to your door. Proudly serving Meridian, MS and surrounding communities.</p>
+    <div class="hero-actions">
+      <a href="tel:6016163099" class="btn btn-primary">📞 Call (601) 616-3099</a>
+      <a href="#contact" class="btn btn-outline">Get Free Estimate</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Happy Reviews</div>
+      </div>
+      <div>
+        <div class="stat-num">1hr</div>
+        <div class="stat-label">Avg Delivery</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-texture-overlay"></div>
+    <div class="hero-card2">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"Ordered and delivered within an hour. Michael and crew is amazing!"</div>
+      <div class="review-author">— Google Reviewer</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 3L16.5 9.5H23L17.5 14L19.5 21L13 17L6.5 21L8.5 14L3 9.5H9.5L13 3Z" fill="white"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hero-card-title">Same-Day Delivery</div>
+        <div class="hero-card-sub">Order by 3 PM for delivery today</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Hardwood Mulch</span><span>Pine Straw</span><span>Decorative Gravel</span><span>Topsoil</span><span>River Rock</span><span>Landscape Stone</span><span>Free Estimates</span><span>Same-Day Delivery</span>
+    <span>Hardwood Mulch</span><span>Pine Straw</span><span>Decorative Gravel</span><span>Topsoil</span><span>River Rock</span><span>Landscape Stone</span><span>Free Estimates</span><span>Same-Day Delivery</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-label">What We Carry</div>
+      <h2 class="section-title">Everything your landscape needs</h2>
+    </div>
+    <a href="#contact" class="btn btn-outline" style="border-color: var(--bark);">Request a Product →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-swatch swatch-mulch">🌲</div>
+      <div class="product-info">
+        <div class="product-name">Hardwood Mulch</div>
+        <div class="product-desc">Rich, dark mulch that retains moisture and suppresses weeds — perfect for flower beds and garden borders.</div>
+        <div class="product-tag">Customer Favorite</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-swatch swatch-pine">🌾</div>
+      <div class="product-info">
+        <div class="product-name">Pine Straw</div>
+        <div class="product-desc">Natural, long-lasting pine needle mulch that insulates roots and gives any landscape a clean, finished look.</div>
+        <div class="product-tag">Popular Choice</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-swatch swatch-stone">🪨</div>
+      <div class="product-info">
+        <div class="product-name">Decorative Stone</div>
+        <div class="product-desc">Beautiful accent stones in a variety of colors to frame walkways, driveways, and garden features.</div>
+        <div class="product-tag">Low Maintenance</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-swatch swatch-gravel">⬜</div>
+      <div class="product-info">
+        <div class="product-name">Gravel</div>
+        <div class="product-desc">Versatile crushed gravel for driveways, drainage solutions, and hardscaping projects of any size.</div>
+        <div class="product-tag">Multi-Use</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-swatch swatch-topsoil">🌱</div>
+      <div class="product-info">
+        <div class="product-name">Premium Topsoil</div>
+        <div class="product-desc">High-quality, nutrient-rich topsoil to establish new lawns, gardens, and raised beds the right way.</div>
+        <div class="product-tag">Garden Ready</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-swatch swatch-sand">🏖️</div>
+      <div class="product-info">
+        <div class="product-name">River Rock &amp; Sand</div>
+        <div class="product-desc">Smooth river rock and clean sand for drainage beds, decorative accents, and construction fill needs.</div>
+        <div class="product-tag">Specialty</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" style="padding: 6rem 8%;">
+  <div class="why-visual">
+    <div class="why-big-card">
+      <div class="why-big-num">5.0</div>
+      <div class="why-big-label">Perfect Google Rating — every single review</div>
+    </div>
+    <div class="why-mini-cards">
+      <div class="why-mini">
+        <div class="why-mini-icon">🚚</div>
+        <div class="why-mini-title">Same-Day Delivery</div>
+        <div class="why-mini-desc">Order before 3 PM and we'll get it to you today.</div>
+      </div>
+      <div class="why-mini">
+        <div class="why-mini-icon">💬</div>
+        <div class="why-mini-title">Free Estimates</div>
+        <div class="why-mini-desc">Know exactly what you need before spending a dime.</div>
+      </div>
+      <div class="why-mini">
+        <div class="why-mini-icon">🏪</div>
+        <div class="why-mini-title">Easy Access</div>
+        <div class="why-mini-desc">Convenient Industrial Park location with drive-up access.</div>
+      </div>
+      <div class="why-mini">
+        <div class="why-mini-icon">👋</div>
+        <div class="why-mini-title">Friendly Team</div>
+        <div class="why-mini-desc">Real neighbors who know landscaping and love helping.</div>
+      </div>
+    </div>
+  </div>
+  <div class="why-features">
+    <div class="section-label">Why Choose NewGen</div>
+    <h2 class="section-title">A local team that shows up — and shows out.</h2>
+    <p>We're not a big-box store. We're your neighbors. Since we started, our focus has been simple: get you the best materials, fast, with a smile.</p>
+    <ul class="feature-list">
+      <li class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <div class="feature-title">Lightning-Fast Turnaround</div>
+          <div class="feature-desc">Customers regularly receive deliveries within an hour of ordering. We respect your time and your project timeline.</div>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div>
+          <div class="feature-title">Quality You Can See and Feel</div>
+          <div class="feature-desc">Every load of mulch, stone, and soil meets our own high standards before it leaves our yard.</div>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">🤝</div>
+        <div>
+          <div class="feature-title">Helpful, Knowledgeable Staff</div>
+          <div class="feature-desc">Not sure how much you need? We'll walk you through it. Our team takes the guesswork out of every order.</div>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">📍</div>
+        <div>
+          <div class="feature-title">Rooted in Meridian</div>
+          <div class="feature-desc">Born and built right here in Meridian, MS. We're proud to serve our community and earn your trust every order.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-label">What Customers Say</div>
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+    <h2 class="section-title">Meridian loves NewGen.</h2>
+    <div class="reviews-aggregate">
+      <div class="agg-score">5.0</div>
+      <div class="agg-info">
+        <div class="agg-stars">★★★★★</div>
+        <div class="agg-count">Based on 15 Google reviews</div>
+        <div style="font-size:0.78rem; opacity:0.6; margin-top:0.2rem;">Meridian, MS</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-body">"Absolutely great place to get your landscaping materials. I have been getting my mulch, pine straw, and gravel from these guys since they started. Great friendly people who make you feel welcome every time."</div>
+      <div class="review-author">— Verified Google Customer</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-body">"Michael and crew is amazing! Ordered and delivered within an hour. Couldn't believe how fast and smooth the whole process was. Will definitely be ordering again."</div>
+      <div class="review-author">— Verified Google Customer</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-body">"I purchased top soil from them and they were very helpful. Top soil looks great. Glad I found out about NewGen! Already planning my next project with them."</div>
+      <div class="review-author">— Verified Google Customer</div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section id="delivery">
+  <div class="section-label">Our Services</div>
+  <h2 class="section-title">We make it easy — from call to curb.</h2>
+  <div class="delivery-grid">
+    <div class="delivery-item">
+      <div class="delivery-icon">🚚</div>
+      <div class="delivery-title">Same-Day Delivery</div>
+      <div class="delivery-desc">Order by 3 PM and get your materials delivered the same day. No waiting, no hassle.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="delivery-icon">📋</div>
+      <div class="delivery-title">Free Estimates</div>
+      <div class="delivery-desc">Call or stop by and we'll help you figure out exactly how much material your project needs.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="delivery-icon">🏪</div>
+      <div class="delivery-title">Easy Store Access</div>
+      <div class="delivery-desc">Drive right up to our Industrial Park location and load up on your schedule, your way.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="delivery-icon">📞</div>
+      <div class="delivery-title">Personal Service</div>
+      <div class="delivery-desc">Call us directly and talk to a real person who knows every product we carry inside and out.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Come see us or give us a call.</h2>
+    <p style="color:var(--muted); margin-top:0.75rem; line-height:1.7;">Whether you're picking up in person or need a same-day delivery, we're here to help you get your project done right.</p>
+    <div class="contact-details">
+      <div class="contact-row">
+        <div class="contact-row-icon">📞</div>
+        <div>
+          <div class="contact-row-label">Phone</div>
+          <div class="contact-row-value"><a href="tel:6016163099">(601) 616-3099</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">📍</div>
+        <div>
+          <div class="contact-row-label">Address</div>
+          <div class="contact-row-value"><a href="https://maps.google.com/?q=989+NE+Industrial+Park+Rd+Suite+A+Meridian+MS+39301" target="_blank">989 NE Industrial Park Rd, Suite A<br>Meridian, MS 39301</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">🕐</div>
+        <div>
+          <div class="contact-row-label">Hours</div>
+          <div class="contact-row-value">
+            <div class="hours-grid">
+              <div class="hours-day">Mon – Fri</div><div class="hours-time">7:00 AM – 4:00 PM</div>
+              <div class="hours-day">Saturday</div><div class="hours-time">7:00 AM – 3:00 PM</div>
+              <div class="hours-day">Sunday</div><div class="hours-time">Closed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">🚚</div>
+        <div>
+          <div class="contact-row-label">Delivery Window</div>
+          <div class="contact-row-value">7:00 AM – 3:00 PM (order by 3 PM)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-wrap">
+    <h3>Request a Free Estimate</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="John" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(601) 555-0100" />
+    </div>
+    <div class="form-group">
+      <label>Product Interested In</label>
+      <select>
+        <option value="">Select a product...</option>
+        <option>Hardwood Mulch</option>
+        <option>Pine Straw</option>
+        <option>Decorative Stone</option>
+        <option>Gravel</option>
+        <option>Premium Topsoil</option>
+        <option>River Rock / Sand</option>
+        <option>Multiple Products</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell us about your project</label>
+      <textarea placeholder="How much do you need? Delivery or pickup? Any details that help us prepare..."></textarea>
+    </div>
+    <button class="btn btn-primary form-submit" onclick="alert('Thanks! We\'ll be in touch shortly. Or call us directly at (601) 616-3099 for the fastest response.')">Send My Estimate Request →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">
+      <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 4C10 4 4 12 4 20C4 28 10 32 18 32C26 32 32 26 32 18C32 10 26 4 18 4Z" fill="#7DA86E"/>
+        <path d="M18 32V16" stroke="#F7F3EE" stroke-width="2" stroke-linecap="round"/>
+        <path d="M18 22L13 17" stroke="#F7F3EE" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18 18L23 13" stroke="#F7F3EE" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="footer-brand-text">NewGen <span>Mulch</span> & Stone LLC</div>
+    </div>
+    <p class="footer-tagline">Meridian's go-to source for premium landscaping materials. Quality products, fast delivery, and real people who care about your yard.</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#products">Our Products</a></li>
+      <li><a href="#why">Why NewGen</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#delivery">Delivery Info</a></li>
+      <li><a href="#contact">Get an Estimate</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="tel:6016163099">(601) 616-3099</a></li>
+      <li><a href="https://maps.google.com/?q=989+NE+Industrial+Park+Rd+Suite+A+Meridian+MS+39301" target="_blank">989 NE Industrial Park Rd, Suite A</a></li>
+      <li><a href="https://maps.google.com/?q=989+NE+Industrial+Park+Rd+Suite+A+Meridian+MS+39301" target="_blank">Meridian, MS 39301</a></li>
+      <li><a href="https://g.co/kgs/newgen" target="_blank">Leave a Google Review ★</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 NewGen Mulch & Stone LLC. All rights reserved.</span>
+    <span>Serving Meridian, MS and surrounding areas.</span>
+  </div>
+</footer>
+
+</body>
+</html>
